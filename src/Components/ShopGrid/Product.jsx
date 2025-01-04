@@ -1,18 +1,25 @@
-
-
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import {useCart} from '../CartContext';
+import { useLocation } from 'react-router-dom';
 
 const Product = () => {
-  // State to hold fetched products
-  const [products, setProducts] = useState([])
 
-  // Fetch products from the API on component mount
+  const location = useLocation();
+    const isKhmer = location.pathname.startsWith('/kh');
+
+  const [products, setProducts] = useState([])
+  const { addToCart } = useCart();
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error))
   }, [])
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
 
   return (
     <div>
@@ -23,7 +30,7 @@ const Product = () => {
             <div className="col-lg-3 col-md-5">
               <div className="sidebar">
                 <div className="sidebar__item">
-                  <h4>Price</h4>
+                  <h4>{isKhmer ? 'តម្លៃ' : 'Price'}</h4>
                   <div className="price-range-wrap">
                     <div className="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                       data-min="10" data-max="540">
@@ -44,14 +51,14 @@ const Product = () => {
             <div className="col-lg-9 col-md-7">
               <div className="product__discount">
                 <div className="section-title product__discount__title">
-                  <h2>Sale Off</h2>
+                  <h2>{isKhmer ? 'លក់ចេញ' : 'Sale Off'}</h2>
                 </div>
               </div>
               <div className="filter__item">
                 <div className="row">
                   <div className="col-lg-4 col-md-5">
                     <div className="filter__sort">
-                      <span>Sort By</span>
+                      <span>{isKhmer ? 'តម្រៀបតាម' : 'Sort By'}</span>
                       <select>
                         <option value="0">Default</option>
                         <option value="0">Default</option>
@@ -60,7 +67,7 @@ const Product = () => {
                   </div>
                   <div className="col-lg-4 col-md-4">
                     <div className="filter__found">
-                      <h6><span>{products.length}</span> Products found</h6>
+                      <h6><span>{products.length}</span> {isKhmer ? 'រកឃើញផលិតផល' : 'Products found'}</h6>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-3">
@@ -80,7 +87,7 @@ const Product = () => {
                         <ul className="product__item__pic__hover">
                           <li><a href="#"><i className="fa fa-heart"></i></a></li>
                           <li><a href="#"><i className="fa fa-retweet"></i></a></li>
-                          <li><a href="#"><i className="fa fa-shopping-cart"></i></a></li>
+                          <li><a ><i className="fa fa-shopping-cart" onClick={() => handleAddToCart(product)}></i></a></li>
                         </ul>
                       </div>
                       <div className="product__item__text">

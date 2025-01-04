@@ -1,6 +1,10 @@
 import React from 'react'
-
+import { useLocation } from 'react-router-dom';
 const ContactF = () => {
+
+    const location = useLocation();
+    const isKhmer = location.pathname.startsWith('/kh');
+
   return (
     <div>
         {/* <!-- Contact Form Begin --> */}
@@ -9,7 +13,7 @@ const ContactF = () => {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact__form__title">
-                        <h2>Leave Message</h2>
+                        <h2>{isKhmer ? 'ប្រអប់សារ' : 'Leave Message'}</h2>
                     </div>
                 </div>
             </div>
@@ -23,7 +27,7 @@ const ContactF = () => {
                     </div>
                     <div class="col-lg-12 text-center">
                         <textarea placeholder="Your message"></textarea>
-                        <button type="submit" class="site-btn">SEND MESSAGE</button>
+                        <button type="submit" class="site-btn">{isKhmer ? 'ផ្ញេីរសារ' : 'SEND MESSAGE'}</button>
                     </div>
                 </div>
             </form>

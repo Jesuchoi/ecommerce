@@ -1,6 +1,10 @@
 import React from 'react'
-
+import { useLocation } from 'react-router-dom';
 const Menu = () => {
+
+    const location = useLocation();
+    const isKhmer = location.pathname.startsWith('/kh');
+
   return (
     <div>
                {/* <!-- Humberger Begin --> */}
@@ -23,7 +27,7 @@ const Menu = () => {
                 <span class="arrow_carrot-down"></span>
                 <ul>
                     <li><a href="#">English</a></li>
-                    <li><a href="#">Khmer</a></li>
+                    <li><a href="#">ខ្មែរ</a></li>
                 </ul>
             </div>
             <div class="header__top__right__auth">

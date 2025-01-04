@@ -1,6 +1,10 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
+
 
 const Hero = () => {
+    const location = useLocation();
+    const isKhmer = location.pathname.startsWith('/kh');
   return (
     <div>
         {/* <!-- Hero Section Begin --> */}
@@ -8,36 +12,18 @@ const Hero = () => {
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                {isKhmer ? 'ទាំងអស់' : 'All'}
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?"/>
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" placeholder={isKhmer ? 'តើអ្នកត្រូវការអ្វី ?' : 'What do you need?'}/>
+                                <button type="submit" class="site-btn">{isKhmer ? 'ស្វែងរក' : 'SEARCH'}</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -45,8 +31,8 @@ const Hero = () => {
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
+                                <h5>+855-15-599-555</h5>
+                                <span>{isKhmer ? 'គាំទ្រ 24/7 ម៉ោង' : 'support 24/7 time'}</span>
                             </div>
                         </div>
                     </div>

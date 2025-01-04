@@ -1,6 +1,11 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
+    
+    const location = useLocation();
+    const isKhmer = location.pathname.startsWith('/kh');
+
   return (
     <div>
         {/* <!-- Footer Section Begin --> */}
@@ -12,31 +17,35 @@ const Footer = () => {
                         <div class="footer__about__logo">
                             <a href="./index.html"><img src="img/logo.png" alt=""/></a>
                         </div>
+                        <div class="footer__widget">
+                        <h6>Contact Us</h6>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address: st25 44A, Chamkadoung, Phnom Penh City.</li>
+                            <li>Phone: +855-15-599-555</li>
+                            <li>Email: jesuchoi920@gmail.com</li>
                         </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        <h6>Information</h6>
                         <ul>
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Search</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
+                    </div>
+                    <div class="footer__widget">
+                        <h6>Customer Services</h6>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Orders & Returns</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#">Help & FAQs</a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,6 +58,7 @@ const Footer = () => {
                             <button type="submit" class="site-btn">Subscribe</button>
                         </form>
                         <div class="footer__widget__social">
+                            <h6>Stay Connected</h6>
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -62,7 +72,7 @@ const Footer = () => {
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p>
                           {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  2024 &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Ecommerce Software  <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">LIM SOKMEY</a>
   {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}
   </p></div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""/>

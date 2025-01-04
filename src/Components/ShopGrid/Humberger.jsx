@@ -1,6 +1,11 @@
 import React from 'react'
 import Logo1 from '../img/logo.png'
+import { useLocation } from 'react-router-dom';
+
+
 const Humberger = () => {
+    const location = useLocation();
+    const isKhmer = location.pathname.startsWith('/kh');
   return (
     <div>
     {/* <!-- Humberger Begin --> */}
@@ -11,7 +16,7 @@ const Humberger = () => {
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-heart"></i> <span></span>1</a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
@@ -55,7 +60,7 @@ const Humberger = () => {
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li><i class="fa fa-envelope"></i> welcome to our pages</li>
                 <li>Free Shipping for all Order of $99</li>
             </ul>
         </div>
